@@ -33,8 +33,14 @@ export default function Contact() {
     {
       icon: Phone,
       title: 'Phone',
-      details: '(555) 123-4567',
+      details: '+917006310327',
       link: 'tel:+15551234567'
+    },
+     {
+      icon: Phone,
+      title: 'Phone',
+      details: '+919906772162',
+      link: 'tel:+919906772162'
     },
     {
       icon: Mail,

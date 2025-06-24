@@ -1,41 +1,51 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowRight, Home as HomeIcon, Building, Hotel, DollarSign } from 'lucide-react';
-import { useApp } from '../contexts/AppContext';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  Home as HomeIcon,
+  Building,
+  Hotel,
+  DollarSign,
+} from "lucide-react";
+import { useApp } from "../contexts/AppContext";
+import VideoCarousel from "../components/VideoCarousel";
 
 export default function Home() {
   const { images, categories } = useApp();
-  const featuredImages = images.filter(img => img.featured);
+  const featuredImages = images.filter((img) => img.featured);
 
   const services = [
     {
-      title: 'Home Interior & Exterior',
-      description: 'Transform your residential spaces with our comprehensive home design services. From cozy living rooms to beautiful gardens.',
+      title: "Home Interior & Exterior",
+      description:
+        "Transform your residential spaces with our comprehensive home design services. From cozy living rooms to beautiful gardens.",
       icon: HomeIcon,
-      link: '/services/home',
-      color: 'from-amber-600 to-orange-600'
+      link: "/services/home",
+      color: "from-amber-600 to-orange-600",
     },
     {
-      title: 'Hotel Interior & Exterior',
-      description: 'Create memorable hospitality experiences with luxurious hotel interiors and impressive exterior designs.',
+      title: "Hotel Interior & Exterior",
+      description:
+        "Create memorable hospitality experiences with luxurious hotel interiors and impressive exterior designs.",
       icon: Hotel,
-      link: '/services/hotel',
-      color: 'from-blue-600 to-indigo-600'
+      link: "/services/hotel",
+      color: "from-blue-600 to-indigo-600",
     },
     {
-      title: 'Office Interior & Exterior',
-      description: 'Design productive and professional office environments that inspire creativity and enhance business success.',
+      title: "Office Interior & Exterior",
+      description:
+        "Design productive and professional office environments that inspire creativity and enhance business success.",
       icon: Building,
-      link: '/services/office',
-      color: 'from-green-600 to-teal-600'
-    }
+      link: "/services/office",
+      color: "from-green-600 to-teal-600",
+    },
   ];
 
   const stats = [
-    { number: '500+', label: 'Projects Completed' },
-    { number: '15+', label: 'Years Experience' },
-    { number: '98%', label: 'Client Satisfaction' },
-    { number: '50+', label: 'Design Awards' }
+    { number: "500+", label: "Projects Completed" },
+    { number: "15+", label: "Years Experience" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "50+", label: "Design Awards" },
   ];
 
   return (
@@ -50,14 +60,14 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
-        
+
         <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Change Begins
             <span className="block text-amber-500">At Home</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
-            Transform your living spaces with Home Plus Interiors & Exteriors. 
+            Transform your living spaces with Home Plus Interiors & Exteriors.
             Where exceptional design meets quality craftsmanship.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -82,12 +92,15 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our Services
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We specialize in creating beautiful, functional spaces across residential, hospitality, and commercial sectors
+              We specialize in creating beautiful, functional spaces across
+              residential, hospitality, and commercial sectors
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <Link
@@ -97,12 +110,18 @@ export default function Home() {
               >
                 <div className="p-8">
                   <div className="flex items-center mb-6">
-                    <div className={`bg-gradient-to-r ${service.color} p-3 rounded-lg`}>
+                    <div
+                      className={`bg-gradient-to-r ${service.color} p-3 rounded-lg`}
+                    >
                       <service.icon className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 ml-4">{service.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 ml-4">
+                      {service.title}
+                    </h3>
                   </div>
-                  <p className="text-gray-600 text-lg leading-relaxed mb-6">{service.description}</p>
+                  <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                    {service.description}
+                  </p>
                   <div className="flex items-center text-amber-600 font-semibold group-hover:text-amber-700">
                     <span>Learn More</span>
                     <ArrowRight className="h-5 w-5 ml-2 transform group-hover:translate-x-1 transition-transform" />
@@ -118,12 +137,15 @@ export default function Home() {
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Featured Projects
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Discover some of our most stunning transformations across all service categories
+              Discover some of our most stunning transformations across all
+              service categories
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredImages.map((image) => (
               <div
@@ -138,19 +160,23 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{image.title}</h3>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {image.title}
+                  </h3>
                   <p className="text-gray-600 mb-3">{image.description}</p>
                   {image.price && (
                     <div className="flex items-center text-amber-600 font-semibold">
                       <DollarSign className="h-5 w-5" />
-                      <span className="text-lg">{image.price.toLocaleString()}</span>
+                      <span className="text-lg">
+                        {image.price.toLocaleString()}
+                      </span>
                     </div>
                   )}
                 </div>
               </div>
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <Link
               to="/services"
@@ -159,6 +185,12 @@ export default function Home() {
               <span>View All Services</span>
               <ArrowRight className="h-5 w-5" />
             </Link>
+          </div>
+          <div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-2  mt-4 text-center">
+              Highlights
+            </h2>
+            <VideoCarousel />
           </div>
         </div>
       </section>
@@ -169,7 +201,9 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">{stat.number}</div>
+                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                  {stat.number}
+                </div>
                 <div className="text-lg text-amber-100">{stat.label}</div>
               </div>
             ))}
@@ -180,9 +214,12 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold text-white mb-6">Ready to Transform Your Space?</h2>
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to Transform Your Space?
+          </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Whether it's your home, hotel, or office - let's create something beautiful together.
+            Whether it's your home, hotel, or office - let's create something
+            beautiful together.
           </p>
           <Link
             to="/contact"

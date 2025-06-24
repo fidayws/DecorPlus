@@ -10,6 +10,7 @@ import Labor from './pages/Labor';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
+import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+       <WhatsAppFloatingButton  phoneNumber="+919906772162"/>
     </AppProvider>
   );
 }
