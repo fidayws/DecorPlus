@@ -1,52 +1,30 @@
 import React from 'react';
-import Slider from 'react-slick';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const videos = [
-  "vid1.mp4",
-  
-  "vid2.mp4",
-
-  "vid3.mp4"
+  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750845364/vid1_mm2uvu.mp4",
+  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750845363/vid3_opanbh.mp4"
 ];
 
-const VideoCarousel = () => {
-  const settings = {
-    dots: true,
-    infinite: true,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    speed: 1000,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-    responsive: [
-      {
-        breakpoint: 768,
-        settings: { arrows: false }
-      }
-    ]
-  };
-
+const VideoDisplay = () => {
   return (
-    <div className="max-w-screen-lg mx-auto px-4 py-8">
-      <Slider {...settings}>
-        {videos.map((src, index) => (
-          <div key={index} className="px-2">
-            <video
-              src={src}
-              controls
-              loop
-              autoPlay
-              muted
-              className="w-full h-[60vh] object-cover rounded-xl"
-            />
-          </div>
-        ))}
-      </Slider>
+    <div className="w-full flex flex-wrap justify-center gap-6 py-8">
+      {videos.map((src, index) => (
+        <div
+          key={index}
+          className="w-[360px] h-[640px] sm:w-[300px] sm:h-[533px] relative rounded-xl overflow-hidden shadow-lg"
+        >
+          <video
+            src={src}
+            controls
+            loop
+            autoPlay
+            muted
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
     </div>
   );
 };
 
-export default VideoCarousel;
+export default VideoDisplay;
