@@ -134,7 +134,7 @@ export default function Navigation() {
                 <img
                   src="/homeplusLogo.png"
                   alt="Home Plus Logo"
-                  className={`h-28 w-auto transition-all duration-300 ${
+                  className={`h-20 w-auto transition-all duration-300 ${
                     scrolled ? "h-12" : ""
                   }`}
                 />
