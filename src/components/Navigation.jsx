@@ -125,31 +125,32 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-            <button
-              onClick={() => handleNavigation("/")}
-              className="group flex items-center space-x-4 relative focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded-lg p-2 -m-2"
-              aria-label="Home Plus - Go to homepage"
-            >
-              <div className="relative">
-                <img
-                  src="/homeplusLogo.png"
-                  alt="Home Plus Logo"
-                  className={`h-20 w-auto transition-all duration-300 ${
-                    scrolled ? "h-12" : ""
-                  }`}
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300" />
-              </div>
-              <div className="group-hover:translate-x-1 group-focus:translate-x-1 transition-transform duration-300">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
-                  Home Plus
-                </h1>
-                <p className="text-sm text-gray-500 font-medium tracking-wide">
-                  Interiors & Exteriors
-                </p>
-              </div>
-            </button>
+           <button
+  onClick={() => handleNavigation("/")}
+  className="flex items-center space-x-4 relative rounded-lg p-2 -m-2"
+  aria-label="Home Plus - Go to homepage"
+>
+  <div className="relative">
+    <img
+      src="/homeplusLogo.png"
+      alt="Home Plus Logo"
+      className={`h-20 w-auto transition-all duration-300 ${
+        scrolled ? "h-12" : ""
+      }`}
+    />
+    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+    <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 transition-opacity duration-300" />
+  </div>
+  <div>
+    <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
+      Home Plus
+    </h1>
+    <p className="text-sm text-gray-500 font-medium tracking-wide">
+      Interiors & Exteriors
+    </p>
+  </div>
+</button>
+
 
             {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center">
