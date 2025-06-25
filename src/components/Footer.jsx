@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Home, 
   Phone, 
@@ -10,7 +10,6 @@ import {
   ArrowRight,
   Sparkles,
   Heart,
-  ExternalLink,
   Send,
   Award,
   Users,
@@ -21,10 +20,18 @@ import {
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [hoveredSocial, setHoveredSocial] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 100);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const handleNewsletterSubmit = (e) => {
     e.preventDefault();
-    // Handle newsletter signup
     console.log('Newsletter signup:', email);
     setEmail('');
   };
@@ -54,35 +61,38 @@ export default function Footer() {
 
   return (
     <footer className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white overflow-hidden">
-      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 25% 25%, #fbbf24 0%, transparent 50%), 
-                           radial-gradient(circle at 75% 75%, #f97316 0%, transparent 50%)`,
-          backgroundSize: '400px 400px'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle at 25% 25%, #fbbf24 0%, transparent 50%), 
+                             radial-gradient(circle at 75% 75%, #f97316 0%, transparent 50%)`,
+            backgroundSize: '400px 400px'
+          }}
+        ></div>
       </div>
 
-      {/* Decorative Elements */}
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-500"></div>
-      
-      <div className="relative z-10">
-        {/* Stats Section */}
 
-        {/* Main Footer Content */}
+      <div className="relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-            
-            {/* Company Info - Enhanced */}
+            {/* Company Info */}
             <div className="lg:col-span-5">
               <div className="group cursor-pointer inline-block mb-6">
                 <div className="flex items-center space-x-4">
-                  <div className="relative">
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 via-amber-600 to-orange-600 rounded-2xl shadow-2xl flex items-center justify-center group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
-                      <Home className="h-8 w-8 text-white" />
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-                    </div>
-                    <Sparkles className="absolute -top-2 -right-2 h-5 w-5 text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="relative rounded-2xl overflow-hidden bg-white">
+                    <img
+                      src="/homeplusLogo.png"
+                      alt="Home Plus Logo"
+                      className={`h-28 w-auto transition-all duration-300 ${
+                        scrolled ? "h-12" : ""
+                      }`}
+                    />
+                   <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
+
+
+                    <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 group-hover:opacity-100 group-focus:opacity-100 transition-opacity duration-300" />
                   </div>
                   <div>
                     <h2 className="text-3xl font-bold bg-gradient-to-r from-white via-gray-100 to-gray-300 bg-clip-text text-transparent">
@@ -105,15 +115,13 @@ export default function Footer() {
                   <span>Stay Updated</span>
                 </h3>
                 <div className="flex">
-                  <div className="relative flex-1">
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="Enter your email"
-                      className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-white placeholder-gray-400 transition-all duration-300"
-                    />
-                  </div>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="w-full px-4 py-3 bg-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-l-xl focus:outline-none focus:ring-2 focus:ring-amber-500 focus:border-amber-500 text-white placeholder-gray-400 transition-all duration-300"
+                  />
                   <button
                     onClick={handleNewsletterSubmit}
                     className="px-6 py-3 bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-500 hover:to-orange-500 rounded-r-xl transition-all duration-300 hover:scale-105 group"
@@ -123,45 +131,44 @@ export default function Footer() {
                 </div>
               </div>
 
-              {/* Social Links - Enhanced */}
+              {/* Social Links */}
               <div>
                 <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
                 <div className="flex space-x-3">
                   {socialLinks.map(({ icon: Icon, href, label }) => {
-  const hoverColor =
-    label === 'Facebook'
-      ? 'hover:bg-blue-600'
-      : label === 'Instagram'
-      ? 'hover:bg-pink-600'
-      : label === 'Twitter'
-      ? 'hover:bg-sky-500'
-      : label === 'LinkedIn'
-      ? 'hover:bg-blue-700'
-      : '';
-
-  return (
-    <a
-      key={label}
-      href={href}
-      onMouseEnter={() => setHoveredSocial(label)}
-      onMouseLeave={() => setHoveredSocial(null)}
-      className={`group relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg ${hoverColor} hover:border-white/20`}
-      aria-label={label}
-    >
-      <Icon className="h-5 w-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
-      {hoveredSocial === label && (
-        <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md whitespace-nowrap">
-          {label}
-        </div>
-      )}
-    </a>
-  );
-})}
+                    const hoverColor =
+                      label === 'Facebook'
+                        ? 'hover:bg-blue-600'
+                        : label === 'Instagram'
+                        ? 'hover:bg-pink-600'
+                        : label === 'Twitter'
+                        ? 'hover:bg-sky-500'
+                        : label === 'LinkedIn'
+                        ? 'hover:bg-blue-700'
+                        : '';
+                    return (
+                      <a
+                        key={label}
+                        href={href}
+                        onMouseEnter={() => setHoveredSocial(label)}
+                        onMouseLeave={() => setHoveredSocial(null)}
+                        className={`group relative w-12 h-12 bg-gray-800/50 backdrop-blur-sm border border-gray-600/50 rounded-xl flex items-center justify-center transition-all duration-300 hover:scale-110 hover:shadow-lg ${hoverColor} hover:border-white/20`}
+                        aria-label={label}
+                      >
+                        <Icon className="h-5 w-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
+                        {hoveredSocial === label && (
+                          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded-md whitespace-nowrap">
+                            {label}
+                          </div>
+                        )}
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </div>
 
-            {/* Services - Enhanced */}
+            {/* Services */}
             <div className="lg:col-span-4">
               <h3 className="text-xl font-bold mb-6 flex items-center space-x-2">
                 <div className="w-6 h-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg"></div>
@@ -192,7 +199,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            {/* Contact - Enhanced */}
+            {/* Contact Info */}
             <div className="lg:col-span-3">
               <h3 className="text-xl font-bold mb-6 flex items-center space-x-2">
                 <div className="w-6 h-6 bg-gradient-to-r from-amber-500 to-orange-500 rounded-lg"></div>
@@ -242,7 +249,7 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar - Enhanced */}
+        {/* Bottom Bar */}
         <div className="border-t border-gray-700/50 bg-gray-900/50 backdrop-blur-sm">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
@@ -259,7 +266,7 @@ export default function Footer() {
                 <div className="flex items-center space-x-1 text-gray-400">
                   <span>Made with</span>
                   <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-                <a href="http://yaamwebsolutions.com"><span>Yaam Web Solutions</span></a>
+                  <a href="http://yaamwebsolutions.com"><span>Yaam Web Solutions</span></a>
                 </div>
               </div>
             </div>
