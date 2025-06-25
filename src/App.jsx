@@ -11,11 +11,13 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Admin from './pages/Admin';
 import WhatsAppFloatingButton from './components/WhatsAppFloatingButton';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
   return (
     <AppProvider>
       <Router>
+      <ScrollToTop/>
         <div className="min-h-screen flex flex-col">
           <Navigation />
           <main className="flex-grow">
