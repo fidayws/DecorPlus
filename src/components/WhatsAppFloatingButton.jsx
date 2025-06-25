@@ -10,10 +10,10 @@ const WhatsAppFloatingButton = ({ phoneNumber }) => {
   return (
     <button
       onClick={openWhatsApp}
-      className="fixed top-1/2 right-6 transform -translate-y-1/2 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 z-50"
+      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition duration-300 z-50"
       aria-label="Chat on WhatsApp"
     >
-      <FaWhatsapp className="w-4 h-4 sm:w-6 sm:h-6" />
+      <FaWhatsapp className="w-6 h-6 sm:w-8 sm:h-8" />
     </button>
   );
 };

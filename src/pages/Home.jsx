@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
+
 import {
   ArrowRight,
   Home as HomeIcon,
@@ -51,7 +54,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -66,7 +69,7 @@ export default function Home() {
             Change Begins
             <span className="block text-amber-500">At Home</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-center">
             Transform your living spaces with Home Plus Interiors & Exteriors.
             Where exceptional design meets quality craftsmanship.
           </p>
@@ -89,7 +92,7 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
@@ -199,14 +202,31 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-r from-amber-600 to-orange-600">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {stat.number}
+            {stats.map((stat, index) => {
+              const [ref, inView] = useInView({ triggerOnce: true });
+
+              return (
+                <div key={index} ref={ref} className="text-center">
+                  <div className="text-4xl md:text-5xl font-bold text-white mb-2">
+                    {inView && (
+                      <CountUp
+                        end={parseInt(stat.number)}
+                        duration={2}
+                        separator=","
+                        suffix={
+                          stat.number.includes("+")
+                            ? "+"
+                            : stat.number.includes("%")
+                            ? "%"
+                            : ""
+                        }
+                      />
+                    )}
+                  </div>
+                  <div className="text-lg text-amber-100">{stat.label}</div>
                 </div>
-                <div className="text-lg text-amber-100">{stat.label}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>

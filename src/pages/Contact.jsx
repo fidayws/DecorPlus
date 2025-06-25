@@ -19,22 +19,46 @@ export default function Contact() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitted(true);
-    // In a real app, you would send the form data to your backend
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', service: '', message: '' });
-    }, 3000);
-  };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("https://formspree.io/f/mjkrpywj", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: ''
+        });
+      }, 3000);
+    } else {
+      alert("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    console.error("Form submission error:", error);
+    alert("Network error. Please try again later.");
+  }
+};
+
 
   const contactInfo = [
     {
       icon: Phone,
       title: 'Phone',
       details: '+917006310327',
-      link: 'tel:+15551234567'
+      link: 'tel:+917006310327'
     },
      {
       icon: Phone,
