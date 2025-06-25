@@ -4,9 +4,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const videos = [
-  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750310067/IMG_7630_xtvhof.mov",
+  "vid1.mp4",
   
-  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750310322/video2_blkrqn.mp4",
+  "vid2.mp4",
+
+  "vid3.mp4"
 ];
 
 const VideoCarousel = () => {

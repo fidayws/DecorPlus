@@ -14,7 +14,7 @@ import { useApp } from "../contexts/AppContext";
 import VideoCarousel from "../components/VideoCarousel";
 
 export default function Home() {
-  const { images, categories } = useApp();
+  const { images, categories, teamMembers } = useApp();
   const featuredImages = images.filter((img) => img.featured);
 
   const services = [
@@ -70,9 +70,14 @@ export default function Home() {
             <span className="block text-amber-500">At Home</span>
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-center">
-            Transform your living spaces with Home Plus Interiors & Exteriors.
-            Where exceptional design meets quality craftsmanship.
+            Transform your living spaces with Home Plus Interiors & Exteriors —
+            the leading interior and exterior design experts based in{" "}
+            <strong>Srinagar,</strong> <strong>Anantnag</strong>, serving all across{" "}
+            
+            <strong>Kashmir</strong>. Where exceptional design meets quality
+            craftsmanship.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/services"
@@ -194,6 +199,82 @@ export default function Home() {
               Highlights
             </h2>
             <VideoCarousel />
+              {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Meet Our Team
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Our talented professionals bring creativity, expertise, and
+              passion to every project
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            {teamMembers.map((member) => (
+              <div
+                key={member.id}
+                className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              >
+                {/* Image on top */}
+                <img
+                  src={member.image}
+                  alt={`Portrait of ${member.name}`}
+                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                />
+
+                {/* Content below */}
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold text-gray-900">
+                    {member.name}
+                  </h3>
+                  <p className="text-amber-600 font-semibold text-lg">
+                    {member.role}
+                  </p>
+                  <p className="text-gray-600">{member.specialization}</p>
+
+                  <p className="text-gray-600 mt-4 mb-6 leading-relaxed">
+                    {member.description}
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 mb-4">
+                    <div className="text-center bg-white rounded-lg p-3 shadow-sm">
+                      <div className="text-2xl font-bold text-amber-600">
+                        {member.experience}
+                      </div>
+                      <div className="text-sm text-gray-600">Experience</div>
+                    </div>
+                    <div className="text-center bg-white rounded-lg p-3 shadow-sm">
+                      <div className="text-2xl font-bold text-amber-600">
+                        {member.projects}
+                      </div>
+                      <div className="text-sm text-gray-600">Projects</div>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">
+                      Specialties:
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {member.specialties.map((specialty, index) => (
+                        <span
+                          key={index}
+                          className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm"
+                        >
+                          {specialty}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
           </div>
         </div>
       </section>
