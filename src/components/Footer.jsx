@@ -239,7 +239,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                        info@homeplusdesign.com
+                       home.plus199@gmail.com
                       </p>
                     </div>
                   </a>

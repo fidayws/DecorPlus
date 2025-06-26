@@ -219,7 +219,7 @@ export default function Contact() {
                         value={formData.email}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors"
-                        placeholder="your.email@example.com"
+                        placeholder="home.plus199@gmail.com"
                       />
                     </div>
                   </div>

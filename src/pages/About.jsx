@@ -157,7 +157,7 @@ export default function About() {
                 <img
                   src={member.image}
                   alt={`Portrait of ${member.name}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
+                  className="w-full h-64 object-contain transition-transform duration-300 hover:scale-105"
                 />
 
                 {/* Content below */}
@@ -230,9 +230,9 @@ export default function About() {
                 Visit Us
               </h3>
               <p className="text-gray-600">
-                123 Design Street
+                Qaimoh, Chera Hama, Jammu and Kashmir 192124
                 <br />
-                City, State 12345
+                
               </p>
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
@@ -240,14 +240,14 @@ export default function About() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Call Us
               </h3>
-              <p className="text-gray-600">(555) 123-4567</p>
+              <p className="text-gray-600">+917006310327</p>
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
               <Mail className="h-12 w-12 text-amber-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Email Us
               </h3>
-              <p className="text-gray-600">info@homeplusdesign.com</p>
+              <p className="text-gray-600">home.plus199@gmail.com</p>
             </div>
           </div>
         </div>
