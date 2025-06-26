@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import React, { useState } from "react";
+import { Phone, Mail, MapPin, Clock, Send } from "lucide-react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -15,84 +15,83 @@ export default function Contact() {
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  try {
-    const response = await fetch("https://formspree.io/f/mjkrpywj", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/mjkrpywj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      setIsSubmitted(true);
-      setTimeout(() => {
-        setIsSubmitted(false);
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          service: '',
-          message: ''
-        });
-      }, 3000);
-    } else {
-      alert("Something went wrong. Please try again.");
+      if (response.ok) {
+        setIsSubmitted(true);
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({
+            name: "",
+            email: "",
+            phone: "",
+            service: "",
+            message: "",
+          });
+        }, 3000);
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert("Network error. Please try again later.");
     }
-  } catch (error) {
-    console.error("Form submission error:", error);
-    alert("Network error. Please try again later.");
-  }
-};
-
+  };
 
   const contactInfo = [
     {
       icon: Phone,
-      title: 'Phone',
-      details: '+917006310327',
-      link: 'tel:+917006310327'
+      title: "Phone",
+      details: "+917006310327",
+      link: "tel:+917006310327",
     },
-     {
+    {
       icon: Phone,
-      title: 'Phone',
-      details: '+919906772162',
-      link: 'tel:+919906772162'
+      title: "Phone",
+      details: "+919906772162",
+      link: "tel:+919906772162",
     },
     {
       icon: Mail,
-      title: 'Email',
-      details: 'info@homeplusdesign.com',
-      link: 'mailto:info@homeplusdesign.com'
+      title: "Email",
+      details: "info@homeplusdesign.com",
+      link: "mailto:info@homeplusdesign.com",
     },
     {
       icon: MapPin,
-      title: 'Address',
-      details: '123 Design Street, City, State 12345',
-      link: '#'
+      title: "Address",
+      details: "Qaimoh, Chera Hama, Jammu and Kashmir 192124",
+      link: "#",
     },
     {
       icon: Clock,
-      title: 'Hours',
-      details: 'Mon-Fri: 9AM-6PM, Sat: 10AM-4PM',
-      link: '#'
-    }
+      title: "Hours",
+      details: "Mon-sat: 9AM-6PM, Sun: 10AM-4PM",
+      link: "#",
+    },
   ];
 
   const services = [
-    'Interior Design',
-    'Exterior Design',
-    'Landscaping',
-    'Renovation',
-    'Consultation',
-    'Other'
+    "Interior Design",
+    "Exterior Design",
+    "Landscaping",
+    "Renovation",
+    "Consultation",
+    "Other",
   ];
 
   return (
@@ -103,7 +102,8 @@ const handleSubmit = async (e) => {
           <div className="text-center text-white">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">Contact Us</h1>
             <p className="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your space? Get in touch with our design experts today.
+              Ready to transform your space? Get in touch with our design
+              experts today.
             </p>
           </div>
         </div>
@@ -115,12 +115,15 @@ const handleSubmit = async (e) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Get In Touch</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">
+                Get In Touch
+              </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                We'd love to hear about your project and discuss how we can bring your vision to life. 
-                Contact us using any of the methods below or fill out our contact form.
+                We'd love to hear about your project and discuss how we can
+                bring your vision to life. Contact us using any of the methods
+                below or fill out our contact form.
               </p>
-              
+
               <div className="space-y-6">
                 {contactInfo.map((item, index) => (
                   <div key={index} className="flex items-center space-x-4">
@@ -128,11 +131,13 @@ const handleSubmit = async (e) => {
                       <item.icon className="h-6 w-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                      {item.link === '#' ? (
+                      <h3 className="font-semibold text-gray-900">
+                        {item.title}
+                      </h3>
+                      {item.link === "#" ? (
                         <p className="text-gray-600">{item.details}</p>
                       ) : (
-                        <a 
+                        <a
                           href={item.link}
                           className="text-gray-600 hover:text-amber-600 transition-colors"
                         >
@@ -145,34 +150,47 @@ const handleSubmit = async (e) => {
               </div>
 
               {/* Map Placeholder */}
-              <div className="mt-8 bg-gray-200 rounded-lg h-64 flex items-center justify-center">
-                <div className="text-center text-gray-500">
-                  <MapPin className="h-12 w-12 mx-auto mb-2" />
-                  <p>Interactive Map</p>
-                  <p className="text-sm">123 Design Street, City, State 12345</p>
-                </div>
+              <div className="mt-8 rounded-lg overflow-hidden h-64 shadow-md">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.369443040846!2d75.0818852!3d33.725261700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38e205ce1e4ac6d9%3A0x5b5820b09ed777ce!2sHome%20Plus!5e0!3m2!1sen!2sin!4v1750910505730!5m2!1sen!2sin"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Qaimoh, Chera Hama, Jammu and Kashmir 192124"
+                ></iframe>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="bg-white rounded-lg shadow-xl p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                Send Us a Message
+              </h2>
+
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                     <Send className="h-8 w-8 text-green-600" />
                   </div>
-                  <h3 className="text-xl font-semibold text-green-600 mb-2">Message Sent!</h3>
+                  <h3 className="text-xl font-semibold text-green-600 mb-2">
+                    Message Sent!
+                  </h3>
                   <p className="text-gray-600">
-                    Thank you for your interest. We'll get back to you within 24 hours.
+                    Thank you for your interest. We'll get back to you within 24
+                    hours.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Full Name *
                       </label>
                       <input
@@ -187,7 +205,10 @@ const handleSubmit = async (e) => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Email Address *
                       </label>
                       <input
@@ -205,7 +226,10 @@ const handleSubmit = async (e) => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Phone Number
                       </label>
                       <input
@@ -219,7 +243,10 @@ const handleSubmit = async (e) => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
+                      <label
+                        htmlFor="service"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
                         Service Interest
                       </label>
                       <select
@@ -231,14 +258,19 @@ const handleSubmit = async (e) => {
                       >
                         <option value="">Select a service</option>
                         {services.map((service) => (
-                          <option key={service} value={service}>{service}</option>
+                          <option key={service} value={service}>
+                            {service}
+                          </option>
                         ))}
                       </select>
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
                       Project Details *
                     </label>
                     <textarea

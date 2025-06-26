@@ -23,7 +23,9 @@ export default function Navigation() {
   const isActive = (path) => location.pathname === path;
 
   const handleNavigation = (path) => {
-    navigate(path);
+    if (location.pathname !== path) {
+      navigate(path);
+    }
     setIsOpen(false);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
@@ -48,14 +50,7 @@ export default function Navigation() {
   }, [isOpen]);
 
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
+    document.body.style.overflow = isOpen ? "hidden" : "unset";
   }, [isOpen]);
 
   const navLinks = [
@@ -69,35 +64,20 @@ export default function Navigation() {
 
   return (
     <>
-      <style>{
-        `@keyframes slideInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
+      <style>
+        {`
+          @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
           }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .animate-slide-in-up {
-          animation: slideInUp 0.6s ease-out forwards;
-        }
-
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-out forwards;
-        }`
-      }</style>
+          .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+          .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        `}
+      </style>
 
       {isOpen && (
         <div
@@ -107,15 +87,13 @@ export default function Navigation() {
           tabIndex={0}
           aria-label="Close navigation menu"
           onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              setIsOpen(false);
-            }
+            if (e.key === "Enter" || e.key === " ") setIsOpen(false);
           }}
         />
       )}
 
       <nav
-        className={`fixed top-0 left-0 right-0 z-50  transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
             : "bg-white/90 backdrop-blur-md shadow-sm"
@@ -125,34 +103,32 @@ export default function Navigation() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
-           <button
-  onClick={() => handleNavigation("/")}
-  className="flex items-center space-x-4 relative rounded-lg p-2 -m-2"
-  aria-label="Home Plus - Go to homepage"
->
-  <div className="relative">
-    <img
-      src="/homeplusLogo.png"
-      alt="Home Plus Logo"
-      className={`h-20 w-auto transition-all duration-300 ${
-        scrolled ? "h-12" : ""
-      }`}
-    />
-    <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl"></div>
-    <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 transition-opacity duration-300" />
-  </div>
-  <div>
-    <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
-      Home Plus
-    </h1>
-    <p className="text-sm text-gray-500 font-medium tracking-wide">
-      Interiors & Exteriors
-    </p>
-  </div>
-</button>
+            <button
+              onClick={() => handleNavigation("/")}
+              className="flex items-center space-x-4 relative rounded-lg p-2 -m-2"
+              aria-label="Home Plus - Go to homepage"
+            >
+              <div className="relative">
+                <img
+                  src="/homeplusLogo.png"
+                  alt="Home Plus - Interior and Exterior Design Logo"
+                  className={`w-auto transition-all duration-300 ${
+                    scrolled ? "h-12" : "h-20"
+                  }`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl z-0"></div>
+                <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 transition-opacity duration-300" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
+                  Home Plus
+                </h1>
+                <p className="text-sm text-gray-500 font-medium tracking-wide">
+                  Interiors & Exteriors
+                </p>
+              </div>
+            </button>
 
-
-            {/* Desktop Navigation */}
             <div className="hidden lg:flex items-center">
               <div className="flex items-center space-x-2 bg-gray-50/80 backdrop-blur-sm rounded-2xl p-2 border border-gray-200/50">
                 {navLinks.map(({ path, label, icon: Icon }) => (
@@ -182,13 +158,12 @@ export default function Navigation() {
                       )}
                     </span>
                     {isActive(path) && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-xl blur-xl"></div>
+                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-xl blur-xl z-0"></div>
                     )}
                   </button>
                 ))}
               </div>
 
-              {/* CTA */}
               <div className="ml-6">
                 <button
                   onClick={() => handleNavigation("/contact")}
@@ -199,12 +174,11 @@ export default function Navigation() {
                     <span>Get Quote</span>
                     <ChevronRight className="h-4 w-4 group-hover:translate-x-1 group-focus:translate-x-1 transition-transform duration-300" />
                   </span>
-                  <div className="absolute inset route-0 bg-gradient-to-r from-amber-700 to-orange-700 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300 origin-left"></div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-amber-700 to-orange-700 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300 origin-left z-0"></div>
                 </button>
               </div>
             </div>
 
-            {/* Mobile Menu Button */}
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -235,10 +209,9 @@ export default function Navigation() {
             </div>
           </div>
 
-          {/* Mobile Navigation */}
           <div
             id="mobile-menu"
-            className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${
+            className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${
               isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
             }`}
             role="menu"
@@ -254,9 +227,7 @@ export default function Navigation() {
                       ? "text-white bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg scale-105"
                       : "text-gray-700 hover:text-amber-600 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:scale-105"
                   } ${isOpen ? "animate-slide-in-up" : ""}`}
-                  style={{
-                    animationDelay: `${index * 50}ms`,
-                  }}
+                  style={{ animationDelay: `${index * 50}ms` }}
                   role="menuitem"
                   aria-current={isActive(path) ? "page" : undefined}
                 >
@@ -266,7 +237,7 @@ export default function Navigation() {
                         className={`p-2 rounded-xl transition-all duration-300 ${
                           isActive(path)
                             ? "bg-white/20"
-                            : "bg-gray-100 group-hover:bg-amber-100 group-hover:scale-110 group-focus:bg-amber-100 group-focus:scale-110"
+                            : "bg-gray-100 group-hover:bg-amber-100 group-hover:scale-110"
                         }`}
                       >
                         <Icon className="h-5 w-5" />
@@ -278,13 +249,12 @@ export default function Navigation() {
                     className={`h-5 w-5 transition-all duration-300 ${
                       isActive(path)
                         ? "text-white/80"
-                        : "text-gray-400 group-hover:text-amber-500 group-hover:translate-x-1 group-focus:text-amber-500 group-focus:translate-x-1"
+                        : "text-gray-400 group-hover:text-amber-500 group-hover:translate-x-1"
                     }`}
                   />
                 </button>
               ))}
 
-              {/* Mobile CTA */}
               <div className="pt-4 border-t border-gray-200">
                 <button
                   onClick={() => handleNavigation("/contact")}

@@ -213,8 +213,8 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                        123 Design Street<br />
-                        Srinagar, J&K 190001
+                       Qaimoh, Chera Hama, Jammu and Kashmir 192124<br />
+                       
                       </p>
                     </div>
                   </a>
@@ -266,7 +266,7 @@ export default function Footer() {
                 <div className="flex items-center space-x-1 text-gray-400">
                   <span>Made with</span>
                   <Heart className="h-4 w-4 text-red-500 animate-pulse" />
-                  <a href="http://yaamwebsolutions.com"><span>Yaam Web Solutions</span></a>
+                  <a href="http://yaamwebsolutions.com"><span>by Yaam Web Solutions</span></a>
                 </div>
               </div>
             </div>

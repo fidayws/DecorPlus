@@ -8,7 +8,7 @@ export default function Services() {
   const { serviceType } = useParams();
   const { images, categories } = useApp();
   const [selectedCategory, setSelectedCategory] = useState('');
-  
+
   const serviceConfig = {
     home: {
       title: 'Home Interior & Exterior',
@@ -30,11 +30,9 @@ export default function Services() {
     }
   };
 
-  // If no specific service type, show all services
   if (!serviceType) {
     return (
       <div className="min-h-screen bg-gray-50">
-        {/* Header Section */}
         <section className="bg-gradient-to-r from-amber-600 to-orange-600 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center text-white">
@@ -46,7 +44,6 @@ export default function Services() {
           </div>
         </section>
 
-        {/* Services Grid */}
         <section className="py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -94,7 +91,6 @@ export default function Services() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header Section */}
       <section className={`bg-gradient-to-r ${currentService.color} py-16`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center text-white">
@@ -109,11 +105,9 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Interior & Exterior Sections */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Interior Services */}
             <div>
               <div className="flex items-center mb-6">
                 <Palette className="h-8 w-8 text-amber-600 mr-3" />
@@ -129,7 +123,6 @@ export default function Services() {
               </div>
             </div>
 
-            {/* Exterior Services */}
             <div>
               <div className="flex items-center mb-6">
                 <Building2 className="h-8 w-8 text-green-600 mr-3" />
@@ -148,7 +141,6 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Gallery Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -157,7 +149,7 @@ export default function Services() {
               Explore our portfolio of stunning {serviceType} transformations
             </p>
           </div>
-          
+
           <ImageGallery
             images={serviceImages}
             categories={serviceCategories}
