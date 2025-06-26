@@ -66,16 +66,16 @@ export default function Navigation() {
     <>
       <style>
         {`
-          @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-          }
-          .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
-          .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+        @keyframes slideInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .animate-slide-in-up { animation: slideInUp 0.6s ease-out forwards; }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
         `}
       </style>
 
@@ -102,10 +102,10 @@ export default function Navigation() {
         aria-label="Main navigation"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             <button
               onClick={() => handleNavigation("/")}
-              className="flex items-center space-x-4 relative rounded-lg p-2 -m-2"
+              className="flex items-center space-x-3 relative rounded-lg p-2 -m-2"
               aria-label="Home Plus - Go to homepage"
             >
               <div className="relative">
@@ -113,17 +113,15 @@ export default function Navigation() {
                   src="/homeplusLogo.png"
                   alt="Home Plus - Interior and Exterior Design Logo"
                   className={`w-auto transition-all duration-300 ${
-                    scrolled ? "h-12" : "h-20"
+                    scrolled ? "h-10" : "h-14 sm:h-20"
                   }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-2xl z-0"></div>
-                <Sparkles className="absolute -top-1 -right-1 h-4 w-4 text-amber-400 opacity-0 transition-opacity duration-300" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
+                <h1 className="text-base sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent leading-tight">
                   Home Plus
                 </h1>
-                <p className="text-sm text-gray-500 font-medium tracking-wide">
+                <p className="text-xs sm:text-sm text-gray-500 font-medium">
                   Interiors & Exteriors
                 </p>
               </div>
@@ -142,39 +140,18 @@ export default function Navigation() {
                     }`}
                     aria-current={isActive(path) ? "page" : undefined}
                   >
-                    {Icon && (
-                      <Icon
-                        className={`h-4 w-4 transition-transform duration-300 ${
-                          isActive(path)
-                            ? "scale-110"
-                            : "group-hover:scale-110 group-focus:scale-110"
-                        }`}
-                      />
-                    )}
-                    <span className="relative">
-                      {label}
-                      {!isActive(path) && (
-                        <span className="absolute inset-x-0 -bottom-1 h-0.5 bg-gradient-to-r from-amber-500 to-orange-500 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300 origin-left rounded-full"></span>
-                      )}
-                    </span>
-                    {isActive(path) && (
-                      <div className="absolute inset-0 bg-gradient-to-r from-amber-400/20 to-orange-400/20 rounded-xl blur-xl z-0"></div>
-                    )}
+                    {Icon && <Icon className="h-4 w-4" />}
+                    <span>{label}</span>
                   </button>
                 ))}
               </div>
 
-              <div className="ml-6">
+              <div className="ml-4">
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="group relative bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:scale-105 overflow-hidden focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
-                  aria-label="Get a quote - Contact us"
+                  className="bg-gradient-to-r from-amber-600 to-orange-600 text-white px-5 py-2.5 rounded-xl text-sm font-semibold shadow-md hover:scale-105 transition-transform duration-300"
                 >
-                  <span className="relative z-10 flex items-center space-x-2">
-                    <span>Get Quote</span>
-                    <ChevronRight className="h-4 w-4 group-hover:translate-x-1 group-focus:translate-x-1 transition-transform duration-300" />
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-amber-700 to-orange-700 scale-x-0 group-hover:scale-x-100 group-focus:scale-x-100 transition-transform duration-300 origin-left z-0"></div>
+                  Get Quote
                 </button>
               </div>
             </div>
@@ -182,16 +159,11 @@ export default function Navigation() {
             <div className="lg:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`relative p-2 rounded-xl transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ${
+                className={`p-2 rounded-xl transition-all duration-300 ${
                   isOpen
-                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg scale-110"
-                    : "text-gray-700 hover:text-amber-600 hover:bg-gray-50"
+                    ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white"
+                    : "text-gray-700 hover:text-amber-600 hover:bg-gray-100"
                 }`}
-                aria-label={
-                  isOpen ? "Close navigation menu" : "Open navigation menu"
-                }
-                aria-expanded={isOpen}
-                aria-controls="mobile-menu"
               >
                 <div className="relative h-6 w-6">
                   <Menu
@@ -211,58 +183,39 @@ export default function Navigation() {
 
           <div
             id="mobile-menu"
-            className={`lg:hidden overflow-hidden transition-[max-height,opacity] duration-500 ease-in-out ${
-              isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            className={`lg:hidden transition-[max-height,opacity] duration-500 ease-in-out ${
+              isOpen ? "max-h-[75vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0"
             }`}
             role="menu"
             aria-label="Mobile navigation menu"
           >
-            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 my-4 p-6 space-y-2">
+            <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl border border-gray-100 my-3 p-4 space-y-2">
               {navLinks.map(({ path, label, icon: Icon }, index) => (
                 <button
                   key={path}
                   onClick={() => handleNavigation(path)}
-                  className={`group flex items-center justify-between w-full px-4 py-4 rounded-2xl text-base font-semibold transition-all duration-300 transform focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 ${
+                  className={`flex items-center justify-between w-full px-3 py-2.5 text-sm font-medium rounded-xl transition duration-300 ${
                     isActive(path)
-                      ? "text-white bg-gradient-to-r from-amber-500 to-orange-500 shadow-lg scale-105"
-                      : "text-gray-700 hover:text-amber-600 hover:bg-gradient-to-r hover:from-amber-50 hover:to-orange-50 hover:scale-105"
-                  } ${isOpen ? "animate-slide-in-up" : ""}`}
+                      ? "bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow"
+                      : "text-gray-700 hover:bg-amber-50"
+                  }`}
                   style={{ animationDelay: `${index * 50}ms` }}
-                  role="menuitem"
-                  aria-current={isActive(path) ? "page" : undefined}
                 >
-                  <div className="flex items-center space-x-3">
-                    {Icon && (
-                      <div
-                        className={`p-2 rounded-xl transition-all duration-300 ${
-                          isActive(path)
-                            ? "bg-white/20"
-                            : "bg-gray-100 group-hover:bg-amber-100 group-hover:scale-110"
-                        }`}
-                      >
-                        <Icon className="h-5 w-5" />
-                      </div>
-                    )}
+                  <div className="flex items-center space-x-2">
+                    <Icon className="h-5 w-5" />
                     <span>{label}</span>
                   </div>
-                  <ChevronRight
-                    className={`h-5 w-5 transition-all duration-300 ${
-                      isActive(path)
-                        ? "text-white/80"
-                        : "text-gray-400 group-hover:text-amber-500 group-hover:translate-x-1"
-                    }`}
-                  />
+                  <ChevronRight className="h-4 w-4 text-gray-400" />
                 </button>
               ))}
 
-              <div className="pt-4 border-t border-gray-200">
+              <div className="pt-2 border-t border-gray-200">
                 <button
                   onClick={() => handleNavigation("/contact")}
-                  className="flex items-center justify-center space-x-2 w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white px-6 py-4 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 focus:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
-                  aria-label="Get a free quote - Contact us"
+                  className="flex items-center justify-center w-full bg-gradient-to-r from-amber-600 to-orange-600 text-white px-4 py-3 text-sm font-semibold rounded-xl shadow-md hover:scale-105 transition-transform duration-300"
                 >
                   <span>Get Free Quote</span>
-                  <Sparkles className="h-5 w-5" />
+                  <Sparkles className="ml-2 h-4 w-4" />
                 </button>
               </div>
             </div>

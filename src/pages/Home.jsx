@@ -71,9 +71,9 @@ export default function Home() {
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto leading-relaxed text-center">
             Transform your living spaces with Home Plus Interiors & Exteriors —
             the leading interior and exterior design experts based in{" "}
-            <strong>Srinagar,</strong> <strong>Anantnag</strong>, serving all across{" "}
-            <strong>Kashmir</strong>. Where exceptional design meets quality
-            craftsmanship.
+            <strong>Srinagar,</strong> <strong>Anantnag</strong>, serving all
+            across <strong>Kashmir</strong>. Where exceptional design meets
+            quality craftsmanship.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -171,8 +171,7 @@ export default function Home() {
                   </h3>
                   <p className="text-gray-600 mb-3">{image.description}</p>
                   {image.price && (
-                    <div className="flex items-center text-amber-600 font-semibold">
-                    </div>
+                    <div className="flex items-center text-amber-600 font-semibold"></div>
                   )}
                 </div>
               </div>
@@ -191,10 +190,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Highlights Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-gray-900 mb-2 text-center">
+      { /* Highlights Section */}
+      <section className="py-1">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-1 text-center">
             Our Highlights
           </h2>
           <VideoCarousel />
@@ -283,7 +282,11 @@ export default function Home() {
               // Extract numeric part by removing non-numeric characters
               const numericValue = parseInt(stat.number.replace(/[^0-9]/g, ""));
               // Determine suffix based on original string
-              const suffix = stat.number.includes("%") ? "%" : stat.number.includes("+") ? "+" : "";
+              const suffix = stat.number.includes("%")
+                ? "%"
+                : stat.number.includes("+")
+                ? "+"
+                : "";
 
               return (
                 <div key={index} ref={ref} className="text-center">
