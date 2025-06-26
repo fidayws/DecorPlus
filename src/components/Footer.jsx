@@ -44,12 +44,12 @@ export default function Footer() {
   ];
 
   const services = [
-    { name: 'Interior Design', href: '/interiors', popular: true },
-    { name: 'Exterior Design', href: '/exteriors', popular: true },
-    { name: 'Landscaping', href: '/landscaping' },
-    { name: 'Kitchen Remodeling', href: '/kitchen' },
-    { name: 'Bathroom Design', href: '/bathroom' },
-    { name: 'Home Consultations', href: '/consultations' }
+    { name: 'Interior Design', href: '#', popular: true },
+    { name: 'Exterior Design', href: '#', popular: true },
+    { name: 'Landscaping', href: '#' },
+    { name: 'Kitchen Remodeling', href: '#' },
+    { name: 'Bathroom Design', href: '#' },
+    { name: 'Home Consultations', href: '#' }
   ];
 
   const socialLinks = [
@@ -239,7 +239,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-gray-300 group-hover:text-white transition-colors duration-300">
-                        info@homeplusdesign.com
+                        home.plus199@gmail.com
                       </p>
                     </div>
                   </a>
@@ -254,15 +254,9 @@ export default function Footer() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-400 flex items-center space-x-2">
-                <span>&copy; 2024 Home Plus Interiors & Exteriors. All rights reserved.</span>
+                <span>&copy; 2025 Home Plus Interiors & Exteriors. All rights reserved.</span>
               </p>
               <div className="flex items-center space-x-6 text-sm">
-                <a href="/privacy" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  Privacy Policy
-                </a>
-                <a href="/terms" className="text-gray-400 hover:text-amber-400 transition-colors duration-300">
-                  Terms of Service
-                </a>
                 <div className="flex items-center space-x-1 text-gray-400">
                   <span>Made with</span>
                   <Heart className="h-4 w-4 text-red-500 animate-pulse" />

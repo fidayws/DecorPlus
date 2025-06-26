@@ -153,13 +153,13 @@ export default function About() {
                 key={member.id}
                 className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
-                {/* Image on top */}
-                <img
-                  src={member.image}
-                  alt={`Portrait of ${member.name}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
-
+                <div className="relative w-full pt-[100%]">
+                  <img
+                    src={member.image}
+                    alt={`Portrait of ${member.name}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
                 {/* Content below */}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900">
@@ -230,9 +230,9 @@ export default function About() {
                 Visit Us
               </h3>
               <p className="text-gray-600">
-                123 Design Street
+               Qaimoh, Chera Hama,
                 <br />
-                City, State 12345
+                Jammu and Kashmir 192124
               </p>
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
@@ -240,14 +240,14 @@ export default function About() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Call Us
               </h3>
-              <p className="text-gray-600">(555) 123-4567</p>
+              <p className="text-gray-600">+919906772162<br/>+917006310327</p>
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
               <Mail className="h-12 w-12 text-amber-600 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Email Us
               </h3>
-              <p className="text-gray-600">info@homeplusdesign.com</p>
+              <p className="text-gray-600">home.plus199@gmail.com</p>
             </div>
           </div>
         </div>

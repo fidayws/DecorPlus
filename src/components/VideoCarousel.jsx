@@ -3,11 +3,10 @@ import React from 'react';
 const videos = [
   "https://res.cloudinary.com/dw1sh368y/video/upload/v1750845364/vid1_mm2uvu.mp4",
   "https://res.cloudinary.com/dw1sh368y/video/upload/v1750845363/vid3_opanbh.mp4",
-    "https://res.cloudinary.com/dw1sh368y/video/upload/v1750845363/vid3_opanbh.mp4",
-
+  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750921285/WhatsApp_Video_2025-06-26_at_12.30.24_PM_1_nfeczr.mp4",
+  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750921285/WhatsApp_Video_2025-06-26_at_12.30.25_PM_imhoqk.mp4",
+  "https://res.cloudinary.com/dw1sh368y/video/upload/v1750921286/WhatsApp_Video_2025-06-26_at_12.30.24_PM_xxjmaq.mp4"
 ];
-
-
 
 const VideoDisplay = () => {
   return (
@@ -15,11 +14,10 @@ const VideoDisplay = () => {
       {videos.map((src, index) => (
         <div
           key={index}
-          className="w-full h-[300px] relative rounded-xl overflow-hidden shadow-lg"
+          className="relative w-full overflow-hidden rounded-xl shadow-lg aspect-[9/16] sm:aspect-[16/9]"
         >
           <video
             src={src}
-            controls
             loop
             autoPlay
             muted
@@ -32,6 +30,3 @@ const VideoDisplay = () => {
 };
 
 export default VideoDisplay;
-
-
-

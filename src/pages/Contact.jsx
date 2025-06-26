@@ -68,8 +68,8 @@ export default function Contact() {
     {
       icon: Mail,
       title: "Email",
-      details: "info@homeplusdesign.com",
-      link: "mailto:info@homeplusdesign.com",
+      details: "home.plus199@gmail.com",
+      link: "mailto:home.plus199@gmail.com",
     },
     {
       icon: MapPin,
@@ -239,7 +239,7 @@ export default function Contact() {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-transparent transition-colors"
-                        placeholder="(555) 123-4567"
+                        placeholder=""
                       />
                     </div>
                     <div>

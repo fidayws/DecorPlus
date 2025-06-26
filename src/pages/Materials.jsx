@@ -75,10 +75,7 @@ export default function Materials() {
                           <Info className="h-5 w-5 text-gray-400" />
                         </div>
                         <p className="text-gray-600 mb-4 leading-relaxed">{item.description}</p>
-                        <div className="flex items-center text-purple-600 font-semibold">
-                          <DollarSign className="h-5 w-5 mr-1" />
-                          <span>{item.priceRange}</span>
-                        </div>
+                    
                       </div>
                     ))}
                   </div>

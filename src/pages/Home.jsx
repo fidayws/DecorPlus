@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
-
+import CountUp from "react-countup";
 import {
   ArrowRight,
   Home as HomeIcon,
@@ -73,7 +72,6 @@ export default function Home() {
             Transform your living spaces with Home Plus Interiors & Exteriors —
             the leading interior and exterior design experts based in{" "}
             <strong>Srinagar,</strong> <strong>Anantnag</strong>, serving all across{" "}
-            
             <strong>Kashmir</strong>. Where exceptional design meets quality
             craftsmanship.
           </p>
@@ -154,7 +152,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-colsEquality-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredImages.map((image) => (
               <div
                 key={image.id}
@@ -174,10 +172,6 @@ export default function Home() {
                   <p className="text-gray-600 mb-3">{image.description}</p>
                   {image.price && (
                     <div className="flex items-center text-amber-600 font-semibold">
-                      <DollarSign className="h-5 w-5" />
-                      <span className="text-lg">
-                        {image.price.toLocaleString()}
-                      </span>
                     </div>
                   )}
                 </div>
@@ -194,12 +188,20 @@ export default function Home() {
               <ArrowRight className="h-5 w-5" />
             </Link>
           </div>
-          <div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-2  mt-4 text-center">
-            Our  Highlights
-            </h2>
-            <VideoCarousel />
-              {/* Team Section */}
+        </div>
+      </section>
+
+      {/* Highlights Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl font-bold text-gray-900 mb-2 text-center">
+            Our Highlights
+          </h2>
+          <VideoCarousel />
+        </div>
+      </section>
+
+      {/* Team Section */}
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -218,14 +220,13 @@ export default function Home() {
                 key={member.id}
                 className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
-                {/* Image on top */}
-                <img
-                  src={member.image}
-                  alt={`Portrait of ${member.name}`}
-                  className="w-full h-64 object-cover transition-transform duration-300 hover:scale-105"
-                />
-
-                {/* Content below */}
+                <div className="relative w-full pt-[100%]">
+                  <img
+                    src={member.image}
+                    alt={`Portrait of ${member.name}`}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900">
                     {member.name}
@@ -234,11 +235,9 @@ export default function Home() {
                     {member.role}
                   </p>
                   <p className="text-gray-600">{member.specialization}</p>
-
                   <p className="text-gray-600 mt-4 mb-6 leading-relaxed">
                     {member.description}
                   </p>
-
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     <div className="text-center bg-white rounded-lg p-3 shadow-sm">
                       <div className="text-2xl font-bold text-amber-600">
@@ -253,7 +252,6 @@ export default function Home() {
                       <div className="text-sm text-gray-600">Projects</div>
                     </div>
                   </div>
-
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">
                       Specialties:
@@ -275,9 +273,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-          </div>
-        </div>
-      </section>
 
       {/* Stats Section */}
       <section className="py-20 bg-gradient-to-r from-amber-600 to-orange-600">
@@ -285,22 +280,20 @@ export default function Home() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
               const [ref, inView] = useInView({ triggerOnce: true });
+              // Extract numeric part by removing non-numeric characters
+              const numericValue = parseInt(stat.number.replace(/[^0-9]/g, ""));
+              // Determine suffix based on original string
+              const suffix = stat.number.includes("%") ? "%" : stat.number.includes("+") ? "+" : "";
 
               return (
                 <div key={index} ref={ref} className="text-center">
                   <div className="text-4xl md:text-5xl font-bold text-white mb-2">
                     {inView && (
                       <CountUp
-                        end={parseInt(stat.number)}
+                        end={numericValue}
                         duration={2}
                         separator=","
-                        suffix={
-                          stat.number.includes("+")
-                            ? "+"
-                            : stat.number.includes("%")
-                            ? "%"
-                            : ""
-                        }
+                        suffix={suffix}
                       />
                     )}
                   </div>
