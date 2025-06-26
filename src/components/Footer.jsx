@@ -53,10 +53,10 @@ export default function Footer() {
   ];
 
   const socialLinks = [
-    { icon: Facebook, href: '#', label: 'Facebook', color: 'hover:bg-blue-600' },
-    { icon: Instagram, href: '#', label: 'Instagram', color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600' },
-    { icon: Twitter, href: '#', label: 'Twitter', color: 'hover:bg-sky-500' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:bg-blue-700' }
+    { icon: Facebook, href: 'https://www.facebook.com/profile.php?id=61577623387350', label: 'Facebook', color: 'hover:bg-blue-600' },
+    { icon: Instagram, href: 'https://www.instagram.com/home.plus199/', label: 'Instagram', color: 'hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-600' },
+    { icon: Twitter, href: 'https://x.com/HomePlus199', label: 'Twitter', color: 'hover:bg-sky-500' },
+    // { icon: Linkedin, href: '#', label: 'LinkedIn', color: 'hover:bg-blue-700' }
   ];
 
   return (
