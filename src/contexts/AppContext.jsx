@@ -177,11 +177,7 @@ const teamMembers = [
     name: 'Firdous Ahmed',
     role: 'Lead Interior Designer',
     specialization: 'Interior Design',
-<<<<<<< HEAD
     image: 'https://res.cloudinary.com/dw1sh368y/image/upload/v1750920734/pic1-removebg-preview_odp0vm.png',
-=======
-    image: 'pic1-removebg-preview.png',
->>>>>>> 8188103e3c32a1f6a193047cef62813c79a6fa05
     description: 'Firdous Ahmed brings over 15 years of expertise in interior design, specializing in residential and commercial spaces. With a keen eye for detail and a passion for creating functional yet beautiful environments, Firdous has successfully completed over 300 projects ranging from luxury homes to corporate offices. His design philosophy centers on understanding client needs and translating them into spaces that reflect personality while maximizing functionality.',
     experience: '15+ years',
     projects: '300+',
@@ -192,11 +188,7 @@ const teamMembers = [
     name: 'Javaid Ahmed',
     role: 'Senior Exterior Designer',
     specialization: 'Exterior Design & Landscaping',
-<<<<<<< HEAD
     image: 'https://res.cloudinary.com/dw1sh368y/image/upload/v1750920738/pic2-removebg-preview_zvfrrk.png',
-=======
-    image: 'pic2-removebg-preview.png',
->>>>>>> 8188103e3c32a1f6a193047cef62813c79a6fa05
     description: 'Javaid Ahmed is a master of exterior design and landscaping with 12 years of experience transforming outdoor spaces. His expertise spans from architectural facades to comprehensive landscape design, creating stunning curb appeal and functional outdoor living areas. Javaid combines traditional design principles with modern sustainability practices, ensuring every project is both beautiful and environmentally conscious.',
     experience: '12+ years',
     projects: '250+',
