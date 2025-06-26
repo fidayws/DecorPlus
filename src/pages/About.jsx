@@ -153,6 +153,7 @@ export default function About() {
                 key={member.id}
                 className="bg-gray-50 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
               >
+<<<<<<< HEAD
                 <div className="relative w-full pt-[100%]">
                   <img
                     src={member.image}
@@ -160,6 +161,15 @@ export default function About() {
                     className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
+=======
+                {/* Image on top */}
+                <img
+                  src={member.image}
+                  alt={`Portrait of ${member.name}`}
+                  className="w-full h-64 object-contain transition-transform duration-300 hover:scale-105"
+                />
+
+>>>>>>> 8188103e3c32a1f6a193047cef62813c79a6fa05
                 {/* Content below */}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900">
@@ -230,9 +240,15 @@ export default function About() {
                 Visit Us
               </h3>
               <p className="text-gray-600">
+<<<<<<< HEAD
                Qaimoh, Chera Hama,
                 <br />
                 Jammu and Kashmir 192124
+=======
+                Qaimoh, Chera Hama, Jammu and Kashmir 192124
+                <br />
+                
+>>>>>>> 8188103e3c32a1f6a193047cef62813c79a6fa05
               </p>
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
@@ -240,7 +256,11 @@ export default function About() {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Call Us
               </h3>
+<<<<<<< HEAD
               <p className="text-gray-600">+919906772162<br/>+917006310327</p>
+=======
+              <p className="text-gray-600">+917006310327</p>
+>>>>>>> 8188103e3c32a1f6a193047cef62813c79a6fa05
             </div>
             <div className="text-center bg-white p-8 rounded-lg shadow-lg">
               <Mail className="h-12 w-12 text-amber-600 mx-auto mb-4" />

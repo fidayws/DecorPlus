@@ -91,7 +91,7 @@ export default function ImageGallery({
               )}
               {image.price && (
                 <div className="flex items-center text-amber-600 font-semibold">
-                  <DollarSign className="h-4 w-4" />
+                  
                   <span>{image.price.toLocaleString()}</span>
                 </div>
               )}
@@ -142,7 +142,7 @@ export default function ImageGallery({
               )}
               {lightboxImage.price && (
                 <div className="flex items-center text-amber-400 font-semibold mt-2">
-                  <DollarSign className="h-5 w-5" />
+                  {/* <DollarSign className="h-5 w-5" /> */}
                   <span className="text-lg">{lightboxImage.price.toLocaleString()}</span>
                 </div>
               )}
