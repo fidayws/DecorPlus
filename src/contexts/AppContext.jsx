@@ -36,7 +36,7 @@ const initialImages = [
     description: 'Contemporary home living space with clean lines',
     categoryId: '1',
     featured: true,
-    price: 2500
+    // price: 2500
   },
   {
     id: '2',
@@ -45,7 +45,7 @@ const initialImages = [
     description: 'High-end home kitchen with premium finishes',
     categoryId: '2',
     featured: true,
-    price: 4500
+    // price: 4500
   },
   {
     id: '3',
@@ -54,7 +54,7 @@ const initialImages = [
     description: 'Warm and inviting home bedroom design',
     categoryId: '3',
     featured: true,
-    price: 1800
+    // price: 1800
   },
   
   // Hotel Images
@@ -65,7 +65,7 @@ const initialImages = [
     description: 'Luxurious hotel lobby with marble finishes',
     categoryId: '8',
     featured: true,
-    price: 15000
+    // price: 15000
   },
   {
     id: '5',
@@ -73,7 +73,7 @@ const initialImages = [
     title: 'Hotel Suite Interior',
     description: 'Elegant hotel room with modern amenities',
     categoryId: '9',
-    price: 8000
+    // price: 8000
   },
   
   // Office Images
@@ -84,7 +84,7 @@ const initialImages = [
     description: 'Open plan office with contemporary design',
     categoryId: '13',
     featured: true,
-    price: 12000
+    // price: 12000
   },
 ];
 
@@ -93,44 +93,44 @@ const materials = [
     id: '1',
     category: 'Flooring',
     items: [
-      { name: 'Marble', description: 'Premium natural stone flooring with elegant veining patterns', priceRange: '$50-150/sq ft' },
-      { name: 'Hardwood', description: 'Solid wood flooring in oak, maple, cherry varieties', priceRange: '$30-80/sq ft' },
-      { name: 'Ceramic Tiles', description: 'Durable and water-resistant ceramic floor tiles', priceRange: '$15-40/sq ft' },
-      { name: 'Vinyl Planks', description: 'Modern luxury vinyl planks with wood-look finish', priceRange: '$20-60/sq ft' },
-      { name: 'Natural Stone', description: 'Granite, limestone, and travertine natural stone', priceRange: '$40-120/sq ft' }
+      { name: 'Marble', description: 'Premium natural stone flooring with elegant veining patterns', priceRange: '₹50-150/sq ft' },
+      { name: 'Hardwood', description: 'Solid wood flooring in oak, maple, cherry varieties', priceRange: '₹30-80/sq ft' },
+      { name: 'Ceramic Tiles', description: 'Durable and water-resistant ceramic floor tiles', priceRange: '₹15-40/sq ft' },
+      { name: 'Vinyl Planks', description: 'Modern luxury vinyl planks with wood-look finish', priceRange: '₹20-60/sq ft' },
+      { name: 'Natural Stone', description: 'Granite, limestone, and travertine natural stone', priceRange: '₹40-120/sq ft' }
     ]
   },
   {
     id: '2',
     category: 'Wall Materials',
     items: [
-      { name: 'Paint', description: 'Premium interior and exterior paints in various finishes', priceRange: '$25-60/gallon' },
-      { name: 'Wallpaper', description: 'Designer wallpapers including textured and printed options', priceRange: '$30-150/roll' },
-      { name: 'Wood Paneling', description: 'Solid wood and engineered wood wall paneling', priceRange: '$40-100/sq ft' },
-      { name: 'Stone Veneer', description: 'Natural and manufactured stone wall cladding', priceRange: '$35-80/sq ft' },
-      { name: 'Brick', description: 'Traditional and modern brick wall treatments', priceRange: '$25-70/sq ft' }
+      { name: 'Paint', description: 'Premium interior and exterior paints in various finishes', priceRange: '₹25-60/gallon' },
+      { name: 'Wallpaper', description: 'Designer wallpapers including textured and printed options', priceRange: '₹30-150/roll' },
+      { name: 'Wood Paneling', description: 'Solid wood and engineered wood wall paneling', priceRange: '₹40-100/sq ft' },
+      { name: 'Stone Veneer', description: 'Natural and manufactured stone wall cladding', priceRange: '₹35-80/sq ft' },
+      { name: 'Brick', description: 'Traditional and modern brick wall treatments', priceRange: '₹25-70/sq ft' }
     ]
   },
   {
     id: '3',
     category: 'Ceiling Materials',
     items: [
-      { name: 'Gypsum Board', description: 'Standard drywall for smooth ceiling finishes', priceRange: '$15-30/sq ft' },
-      { name: 'Suspended Ceiling', description: 'Drop ceiling systems with acoustic tiles', priceRange: '$20-50/sq ft' },
-      { name: 'Wood Beams', description: 'Exposed wooden beams for rustic or modern looks', priceRange: '$60-200/linear ft' },
-      { name: 'Coffered Ceiling', description: 'Decorative recessed ceiling panels', priceRange: '$80-300/sq ft' },
-      { name: 'Stretch Ceiling', description: 'Modern PVC stretch ceiling systems', priceRange: '$40-100/sq ft' }
+      { name: 'Gypsum Board', description: 'Standard drywall for smooth ceiling finishes', priceRange: '₹15-30/sq ft' },
+      { name: 'Suspended Ceiling', description: 'Drop ceiling systems with acoustic tiles', priceRange: '₹20-50/sq ft' },
+      { name: 'Wood Beams', description: 'Exposed wooden beams for rustic or modern looks', priceRange: '₹60-200/linear ft' },
+      { name: 'Coffered Ceiling', description: 'Decorative recessed ceiling panels', priceRange: '₹80-300/sq ft' },
+      { name: 'Stretch Ceiling', description: 'Modern PVC stretch ceiling systems', priceRange: '₹40-100/sq ft' }
     ]
   },
   {
     id: '4',
     category: 'Fixtures & Hardware',
     items: [
-      { name: 'Lighting Fixtures', description: 'Chandeliers, pendant lights, and LED systems', priceRange: '$100-5000/piece' },
-      { name: 'Door Hardware', description: 'Handles, locks, hinges in various finishes', priceRange: '$50-500/set' },
-      { name: 'Window Hardware', description: 'Blinds, curtains, and window treatment systems', priceRange: '$100-800/window' },
-      { name: 'Plumbing Fixtures', description: 'Faucets, sinks, toilets, and bathroom accessories', priceRange: '$200-3000/piece' },
-      { name: 'Cabinet Hardware', description: 'Knobs, pulls, and cabinet accessories', priceRange: '$20-200/piece' }
+      { name: 'Lighting Fixtures', description: 'Chandeliers, pendant lights, and LED systems', priceRange: '₹100-5000/piece' },
+      { name: 'Door Hardware', description: 'Handles, locks, hinges in various finishes', priceRange: '₹50-500/set' },
+      { name: 'Window Hardware', description: 'Blinds, curtains, and window treatment systems', priceRange: '₹100-800/window' },
+      { name: 'Plumbing Fixtures', description: 'Faucets, sinks, toilets, and bathroom accessories', priceRange: '₹200-3000/piece' },
+      { name: 'Cabinet Hardware', description: 'Knobs, pulls, and cabinet accessories', priceRange: '₹20-200/piece' }
     ]
   }
 ];
@@ -140,33 +140,33 @@ const laborTypes = [
     id: '1',
     category: 'Construction',
     workers: [
-      { name: 'Mason', description: 'Skilled in brickwork, stonework, and concrete construction', rate: '$40-80/hour' },
-      { name: 'Carpenter', description: 'Expert in woodworking, framing, and custom millwork', rate: '$35-70/hour' },
-      { name: 'Electrician', description: 'Licensed electrical work and lighting installation', rate: '$50-100/hour' },
-      { name: 'Plumber', description: 'Water supply, drainage, and fixture installation', rate: '$45-90/hour' },
-      { name: 'HVAC Technician', description: 'Heating, ventilation, and air conditioning systems', rate: '$50-95/hour' }
+      { name: 'Mason', description: 'Skilled in brickwork, stonework, and concrete construction', rate: '₹40-80/hour' },
+      { name: 'Carpenter', description: 'Expert in woodworking, framing, and custom millwork', rate: '₹35-70/hour' },
+      { name: 'Electrician', description: 'Licensed electrical work and lighting installation', rate: '₹50-100/hour' },
+      { name: 'Plumber', description: 'Water supply, drainage, and fixture installation', rate: '₹45-90/hour' },
+      { name: 'HVAC Technician', description: 'Heating, ventilation, and air conditioning systems', rate: '₹50-95/hour' }
     ]
   },
   {
     id: '2',
     category: 'Finishing',
     workers: [
-      { name: 'Painter', description: 'Interior and exterior painting, wallpaper installation', rate: '$30-60/hour' },
-      { name: 'Tile Installer', description: 'Ceramic, marble, and stone tile installation', rate: '$35-75/hour' },
-      { name: 'Flooring Specialist', description: 'Hardwood, laminate, and carpet installation', rate: '$30-65/hour' },
-      { name: 'Drywall Finisher', description: 'Drywall installation, taping, and finishing', rate: '$25-55/hour' },
-      { name: 'Trim Carpenter', description: 'Molding, baseboards, and finish carpentry', rate: '$40-80/hour' }
+      { name: 'Painter', description: 'Interior and exterior painting, wallpaper installation', rate: '₹30-60/hour' },
+      { name: 'Tile Installer', description: 'Ceramic, marble, and stone tile installation', rate: '₹35-75/hour' },
+      { name: 'Flooring Specialist', description: 'Hardwood, laminate, and carpet installation', rate: '₹30-65/hour' },
+      { name: 'Drywall Finisher', description: 'Drywall installation, taping, and finishing', rate: '₹25-55/hour' },
+      { name: 'Trim Carpenter', description: 'Molding, baseboards, and finish carpentry', rate: '₹40-80/hour' }
     ]
   },
   {
     id: '3',
     category: 'Specialized',
     workers: [
-      { name: 'Interior Designer', description: 'Space planning, color schemes, and design consultation', rate: '$75-200/hour' },
-      { name: 'Landscape Designer', description: 'Outdoor space planning and garden design', rate: '$60-150/hour' },
-      { name: 'Project Manager', description: 'Coordination and oversight of construction projects', rate: '$50-120/hour' },
-      { name: 'Architect', description: 'Building design and structural planning', rate: '$100-300/hour' },
-      { name: 'Site Supervisor', description: 'On-site management and quality control', rate: '$40-85/hour' }
+      { name: 'Interior Designer', description: 'Space planning, color schemes, and design consultation', rate: '₹75-200/hour' },
+      { name: 'Landscape Designer', description: 'Outdoor space planning and garden design', rate: '₹60-150/hour' },
+      { name: 'Project Manager', description: 'Coordination and oversight of construction projects', rate: '₹50-120/hour' },
+      { name: 'Architect', description: 'Building design and structural planning', rate: '₹100-300/hour' },
+      { name: 'Site Supervisor', description: 'On-site management and quality control', rate: '₹40-85/hour' }
     ]
   }
 ];

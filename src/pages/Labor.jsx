@@ -77,12 +77,12 @@ export default function Labor() {
                         <p className="text-gray-600 mb-4 leading-relaxed">{worker.description}</p>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center text-teal-600 font-semibold">
-                            <Clock className="h-5 w-5 mr-1" />
-                            <span className="text-sm">Hourly Rate</span>
+                            {/* <Clock className="h-5 w-5 mr-1" />
+                            <span className="text-sm">Hourly Rate</span> */}
                           </div>
                           <div className="flex items-center text-teal-600 font-bold">
-                            <DollarSign className="h-5 w-5 mr-1" />
-                            <span>{worker.rate}</span>
+                            {/* <DollarSign className="h-5 w-5 mr-1" /> */}
+                            {/* <span>{worker.rate}</span> */}
                           </div>
                         </div>
                       </div>
