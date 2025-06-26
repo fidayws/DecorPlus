@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-[100svh] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[110svh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600"
@@ -63,7 +63,7 @@ export default function Home() {
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
 
-        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 mt-[4.5rem]">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Change Begins
             <span className="block text-amber-500">At Home</span>
