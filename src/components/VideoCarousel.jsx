@@ -41,18 +41,17 @@ const VideoDisplay = () => {
       <Slider {...settings}>
         {videos.map((src, index) => (
           <div key={index} className="px-2">
-            <div
-              className="relative w-full overflow-hidden rounded-xl shadow-lg h-[220px] sm:h-[240px] md:h-[280px] lg:h-[340px] xl:h-[400px] "
-            >
-              <video
-                src={src}
-                loop
-                autoPlay
-                muted
-                playsInline
-                className="w-full h-full object-cover"
-              />
-            </div>
+<div className="relative w-full overflow-hidden rounded-xl shadow-lg 
+  pb-[177.78%] sm:pb-[177.78%] md:pb-[56.25%] lg:pb-[56.25%] xl:pb-[56.25%]">
+  <video
+    src={src}
+    loop
+    autoPlay
+    muted
+    playsInline
+    className="absolute top-0 left-0 w-full h-full object-cover"
+  />
+</div>
           </div>
         ))}
       </Slider>
